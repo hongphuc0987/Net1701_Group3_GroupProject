@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
+    public int mushroomsNeeded = 10; // Số lượng nấm cần thiết để qua màn
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (MushroomManager.instance.HasCollectedEnoughMushrooms(10))
+            if (MushroomManager.instance.HasCollectedEnoughMushrooms(mushroomsNeeded))
             {
                 SceneController.instance.NextLevel();
             }
@@ -19,4 +21,3 @@ public class FinishPoint : MonoBehaviour
         }
     }
 }
-
